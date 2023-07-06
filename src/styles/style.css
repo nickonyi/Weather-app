@@ -1,0 +1,10 @@
+.red {
+    color: red;
+}
+
+.blue {
+    background: rgb(147, 147, 206);
+    height: 100px;
+    width: 500px;
+    border: 1px solid saddlebrown;
+}
