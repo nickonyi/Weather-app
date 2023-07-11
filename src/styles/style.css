@@ -1,5 +1,9 @@
-#video {
-    width: 100%;
-    height: 100vh;
-    border: 1px solid lime;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(110, 187, 110);
 }
