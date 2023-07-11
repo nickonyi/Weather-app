@@ -1,26 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-
-
 module.exports = {
-    entry: './src/scripts/index.js',
-    plugins: [
-        new HtmlWebpackPlugin({
-            inject: "body",
-            template: "./src/index.html",
-            filename: "index.html",
-        }),
-        new CopyWebpackPlugin({
-            patterns: [{ from: "./src/images", to: "images/" }],
-        }),
-    ],
+    entry: "./src/scripts/index.js",
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist'),
+        filename: "main.js",
+        path: path.resolve(__dirname, "dist"),
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     module: {
         rules: [{
                 test: /\.css$/i,
@@ -47,8 +35,16 @@ module.exports = {
                 },
             },
         ],
-
-
-
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            inject: "body",
+            template: "./src/index.html",
+            filename: "index.html",
+        }),
+
+        new CopyWebpackPlugin({
+            patterns: [{ from: "./src/images", to: "images/" }],
+        }),
+    ],
 };
