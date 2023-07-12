@@ -1,7 +1,7 @@
-export default class cityInfo {
+export default class CityInfo {
     constructor(ApiData) {
         this.cityDescription = this.createCityDescription(ApiData);
-        this.dateDescription = this.createDateDescription(ApiData);
+
     }
 
     createCityDescription(ApiData) {
