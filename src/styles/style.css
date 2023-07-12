@@ -139,6 +139,8 @@ video {
 
 #error {
     display: none;
+    font-size: 1.5rem;
+    color: hsl(0, 100%, 50%);
 }
 
 .city-info h1 {
