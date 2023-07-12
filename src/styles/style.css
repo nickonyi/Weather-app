@@ -143,6 +143,10 @@ video {
     color: hsl(0, 100%, 50%);
 }
 
+.city-info {
+    border: 2px solid red;
+}
+
 .city-info h1 {
     margin: 0.3rem 0;
     letter-spacing: 0.1rem;

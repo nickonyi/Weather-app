@@ -1,6 +1,6 @@
 export default class APIs {
     constructor() {
-        this.urlGenerator = new UrlGeneretor('e52320b984040185e6040a1e67f254e0');
+        this.urlGenerator = new UrlGeneretor('d3897c1489c0d8ecea8aecab91da4d1d');
     }
 
     async getGeoCoordinates(city) {
