@@ -9,6 +9,8 @@ export default class CurrentWeatherView {
         this.pressure = currentWeatherModel.pressure;
         this.sunrise = currentWeatherModel.sunrise;
         this.sunset = currentWeatherModel.sunset;
+        this.weatherConditionDesc = currentWeatherModel.weatherConditionDesc;
+        this.weatherConditionImg = currentWeatherModel.weatherConditionImg;
 
     }
 
@@ -64,5 +66,20 @@ export default class CurrentWeatherView {
     }
     set sunset(value) {
         this.sunset.textContent = value;
+    }
+
+    get weatherConditionDesc() {
+        return this.element.querySelector('h2');
+    }
+    set weatherConditionDesc(value) {
+        this.weatherConditionDesc.textContent = value;
+    }
+
+    get weatherConditionImg() {
+        return this.element.querySelector('img');
+    }
+
+    set weatherConditionImg(value) {
+        this.weatherConditionImg.src = `./images/${value}.png`;
     }
 }

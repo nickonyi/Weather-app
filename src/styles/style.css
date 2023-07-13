@@ -161,12 +161,14 @@ h2 {
     justify-content: space-around;
 }
 
-.current-weather_cointainer {
+.current-weather__container {
     display: flex;
 }
 
-.current-weather_cointainer img {
-    width: calc(10rem + 10vw);
+.current-weather__container img {
+    display: flex;
+    align-self: start;
+    width: calc(7rem + 10vw);
 }
 
 .current-weather_cointainer h1 {
@@ -175,7 +177,7 @@ h2 {
     font-weight: var(--fw-400);
 }
 
-.current-weather_temp {
+.current-weather__temp {
     display: flex;
     flex-direction: column;
     justify-content: center;
