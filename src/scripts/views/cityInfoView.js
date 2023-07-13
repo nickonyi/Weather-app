@@ -3,6 +3,7 @@ export default class CityInfoView {
         this.element = element;
         this.model = cityInfoModel;
         this.city = cityInfoModel.cityDescription;
+        this.date = cityInfoModel.dateDescription;
     }
 
     get city() {
@@ -10,5 +11,11 @@ export default class CityInfoView {
     }
     set city(value) {
         this.city.textContent = value;
+    }
+    get date() {
+        return this.element.querySelector('h2');
+    }
+    set date(value) {
+        this.date.textContent = value;
     }
 }

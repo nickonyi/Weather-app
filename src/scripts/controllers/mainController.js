@@ -4,7 +4,7 @@ export default class MainController {
         this.view = view;
         this.city = {};
         this.unit = "metric";
-        this.city = "Mombasa";
+        this.city = "eldoret";
         this.loadpage(this.city);
 
     }
