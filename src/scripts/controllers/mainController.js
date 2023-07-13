@@ -4,8 +4,9 @@ export default class MainController {
         this.view = view;
         this.city = {};
         this.unit = "metric";
-        this.city = "eldoret";
+        this.city = "nairobi";
         this.loadpage(this.city);
+
 
     }
 
@@ -14,6 +15,10 @@ export default class MainController {
         this.city = city;
 
         const cityInfo = await this.model.getCityInfo(city, this.unit);
+        const currentWeather = await this.model.getCurrentWeather(city, this.unit);
+
+        console.log(currentWeather);
         this.view.appendCityInfo(cityInfo);
+        this.view.appendCurrrentWeather(currentWeather);
     }
 }

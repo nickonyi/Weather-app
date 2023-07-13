@@ -7,3 +7,6 @@ import MainController from './controllers/mainController';
 const model = new MainModel();
 const view = new MainView();
 const controller = new MainController(model, view);
+
+const d = new Date();
+console.log(d);
