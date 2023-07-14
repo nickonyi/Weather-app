@@ -14,6 +14,13 @@ export default class CurrentWeatherView {
         this.backgroundVideo = currentWeatherModel.backgroundVideo;
 
     }
+    weatherColor(value) {
+        if (value == "Rain") {
+            document.body.classList.add('color-rain');
+        } else if (value == "Mist") {
+            document.body.classList.add('color-mist');
+        }
+    }
 
     get temperature() {
         return this.element.querySelector('h1');
@@ -82,6 +89,8 @@ export default class CurrentWeatherView {
 
     set weatherConditionImg(value) {
         this.weatherConditionImg.src = `./images/${value}.png`;
+        this.weatherColor(value);
+
     }
 
     get backgroundVideo() {

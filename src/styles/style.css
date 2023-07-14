@@ -22,7 +22,7 @@ body {
     min-height: 100vh;
     background-color: rgb(142, 227, 233);
     font-family: var(--ff-primary);
-    color: #fff;
+    color: #ffffff;
     font-family: var(--ff-primary);
     font-size: 1.25rem;
 }
@@ -228,4 +228,12 @@ h2 {
 
 .forecast__item img {
     width: calc(2rem + 3vw);
+}
+
+.color-rain {
+    color: #205c14;
+}
+
+.color-mist {
+    color: #5c949e;
 }
