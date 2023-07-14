@@ -11,6 +11,7 @@ export default class CurrentWeatherView {
         this.sunset = currentWeatherModel.sunset;
         this.weatherConditionDesc = currentWeatherModel.weatherConditionDesc;
         this.weatherConditionImg = currentWeatherModel.weatherConditionImg;
+        this.backgroundVideo = currentWeatherModel.backgroundVideo;
 
     }
 
@@ -81,5 +82,12 @@ export default class CurrentWeatherView {
 
     set weatherConditionImg(value) {
         this.weatherConditionImg.src = `./images/${value}.png`;
+    }
+
+    get backgroundVideo() {
+        return document.getElementById('video');
+    }
+    set backgroundVideo(value) {
+        this.backgroundVideo.src = value;
     }
 }

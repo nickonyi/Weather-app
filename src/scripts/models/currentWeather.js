@@ -14,7 +14,8 @@ export default class CurrentWeather {
             currentWeatherData.sys.sunset,
             currentWeatherData.timezone
         );
-        console.log(this.weatherConditionImg);
+        this.backgroundVideo = this.getBackgroundVideo(this.weatherConditionImg);
+
     }
 
     getTemperature(degrees, unit) {
@@ -46,5 +47,19 @@ export default class CurrentWeather {
         const sunriseDate = this.convertToSearchedCityDate(sunriseUnix, timezone);
         const sunsetDate = this.convertToSearchedCityDate(sunsetUnix, timezone);
         return currentDate > sunriseDate && currentDate < sunsetDate ? `${value}Day` : `${value}Night`;
+    }
+
+    getBackgroundVideo(weatherCondition) {
+        const videoLinks = {
+            ClearDay: "https://player.vimeo.com/external/420221145.hd.mp4?s=3959bcbf4829a95ce4b2940192074d7469ff984b&profile_id=175&oauth2_token_id=57447761",
+            ClearNight: "https://player.vimeo.com/external/333584599.sd.mp4?s=df21eca618f9749cf2f734fee7c94fc1a09d0f54&amp;profile_id=164&amp;oauth2_token_id=57447761",
+            Clouds: "https://player.vimeo.com/external/444192978.hd.mp4?s=18ab734562d8c4ea0ec2fed7f16f3edf6158ddcc&profile_id=172&oauth2_token_id=57447761",
+            Mist: "https://player.vimeo.com/external/350241088.hd.mp4?s=3a287426e0146dab6ea738f4629c6f0989a89603&profile_id=172&oauth2_token_id=57447761",
+            Rain: "https://player.vimeo.com/progressive_redirect/playback/708629823/rendition/720p/file.mp4?loc=external&oauth2_token_id=57447761&signature=9951e451334fdfbcf9eb6b8c933fd01dd12a54a03fdb371f0da864a17aaeaf29",
+            Mist: "https://player.vimeo.com/external/350241088.hd.mp4?s=3a287426e0146dab6ea738f4629c6f0989a89603&profile_id=172&oauth2_token_id=57447761",
+            Thunderstorm: "https://player.vimeo.com/external/480223896.hd.mp4?s=e4b94f0b5700bfa68cb6f02b41f94ecca91242e9&profile_id=169&oauth2_token_id=57447761"
+
+        }
+        return videoLinks[weatherCondition];
     }
 }

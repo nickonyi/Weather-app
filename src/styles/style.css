@@ -22,7 +22,7 @@ body {
     min-height: 100vh;
     background-color: rgb(142, 227, 233);
     font-family: var(--ff-primary);
-    color: #2e2a2a;
+    color: #fff;
     font-family: var(--ff-primary);
     font-size: 1.25rem;
 }
