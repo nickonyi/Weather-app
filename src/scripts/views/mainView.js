@@ -1,5 +1,6 @@
 import CityInfoView from "./cityInfoView";
 import CurrentWeatherView from "./currentWeatherView";
+import ForecastWeatherView from "./forecastWeatherView";
 
 export default class MainView {
     appendCityInfo(cityInfo) {
@@ -10,6 +11,11 @@ export default class MainView {
     appendCurrrentWeather(currentWeather) {
         const element = document.getElementById("current-weather");
         new CurrentWeatherView(element, currentWeather);
+    }
+
+    appendForecastWeather(forecastWeather) {
+        const element = document.getElementById('forecast');
+        new ForecastWeatherView(element, forecastWeather);
     }
 
 }

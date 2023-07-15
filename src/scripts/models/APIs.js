@@ -37,7 +37,7 @@ export default class APIs {
         try {
             const { lat, lon } = await this.getGeoCoordinates(city);
             const url = this.urlGenerator.generateForecastWeather(lat, lon, unit);
-            const response = await fetch(url, { mode: "cors" });
+            const response = await fetch(url, { mode: 'cors' });
             const forecastData = await response.json();
             document.getElementById("error").style.display = "none";
             return forecastData;
