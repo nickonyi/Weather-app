@@ -16,9 +16,11 @@ export default class CurrentWeatherView {
     }
     weatherColor(value) {
         if (value == "Rain") {
-            document.body.classList.add('color-rain');
+            document.body.classList.add('color-black');
         } else if (value == "Mist") {
-            document.body.classList.add('color-mist');
+            document.body.classList.add('color-black');
+        } else if (value == "ClearDay" || value == "Night") {
+            document.body.classList.add('color-black');
         }
     }
 

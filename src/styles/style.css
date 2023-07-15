@@ -230,10 +230,6 @@ h2 {
     width: calc(2rem + 3vw);
 }
 
-.color-rain {
-    color: #1c1d1b;
-}
-
-.color-mist {
+.color-black {
     color: #070707;
 }

@@ -3,6 +3,7 @@ export default class ForecastWeatherView {
         this.element = element;
         this.model = forecastWeatherModel;
         this.temperatures = forecastWeatherModel.temperature;
+        this.weatherConditions = forecastWeatherModel.weatherCondition;
 
     }
 
@@ -14,6 +15,15 @@ export default class ForecastWeatherView {
         for (let i = 0; i < 8; i++) {
             this.temperatures[i].textContent = value[i];
 
+        }
+    }
+
+    get weatherConditions() {
+        return this.element.querySelectorAll('img');
+    }
+    set weatherConditions(value) {
+        for (let i = 1; i < this.weatherConditions.length; i++) {
+            this.weatherConditions[i].src = `./images/${value[i-1]}.png`;
         }
     }
 

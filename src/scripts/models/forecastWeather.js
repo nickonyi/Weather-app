@@ -1,6 +1,8 @@
 export default class ForecastWeather {
     constructor(forecastWeatherData, unit) {
         this.temperature = this.getTemperature(forecastWeatherData, unit);
+        this.weatherCondition = this.getWeatherConditions(forecastWeatherData);
+
     }
 
     getTemperature(forecastWeatherData, unit) {
@@ -15,5 +17,32 @@ export default class ForecastWeather {
 
     getTemperatureUnit(degree, unit) {
         return unit === "metric" ? `${degree}℃` : `${degree}℉`;
+    }
+
+    convertToSearchedCityDate(unixTime, timezone) {
+        const localDate = new Date(unixTime * 1000);
+        const utcUnixTimeZone = localDate.getTime() + localDate.getTimezoneOffset() * 60000;
+        const unixTimeInSearchedCity = utcUnixTimeZone + timezone * 1000;
+        const dateInsearchedCity = new Date(unixTimeInSearchedCity);
+        return dateInsearchedCity;
+    }
+    getWeatherConditionImg(value, time, sunriseUnix, sunsetUnix, timezone) {
+        if (value !== "Clear") return value;
+        const currentHour = this.convertToSearchedCityDate(time, timezone).getHours();
+        const sunriseHour = this.convertToSearchedCityDate(sunriseUnix, timezone).getHours();
+        const sunsetHour = this.convertToSearchedCityDate(sunsetUnix, timezone).getHours();
+        return currentHour > sunriseHour && currentHour < sunsetHour ? `${value}Day` : `${value}Night`;
+    }
+
+    getWeatherConditions(forecastWeatherData) {
+        const weatherCondition = [];
+        const sunriseUnix = forecastWeatherData.city.sunrise;
+        const sunsetUnix = forecastWeatherData.city.sunset;
+        const { timezone } = forecastWeatherData.city;
+        forecastWeatherData.list.forEach(item => {
+            const cond = this.getWeatherConditionImg(item.weather[0].main, item.dt, sunriseUnix, sunsetUnix, timezone);
+            weatherCondition.push(cond);
+        });
+        return weatherCondition;
     }
 }
