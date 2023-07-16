@@ -2,6 +2,8 @@ export default class ForecastWeather {
     constructor(forecastWeatherData, unit) {
         this.temperature = this.getTemperature(forecastWeatherData, unit);
         this.weatherCondition = this.getWeatherConditions(forecastWeatherData);
+        this.time = this.getTime(forecastWeatherData);
+
 
     }
 
@@ -44,5 +46,25 @@ export default class ForecastWeather {
             weatherCondition.push(cond);
         });
         return weatherCondition;
+    }
+
+    getTime(forecastWeatherData) {
+        const times = [];
+        const { timezone } = forecastWeatherData.city;
+        forecastWeatherData.list.forEach(item => {
+            const time = this.convertToSearchedTime(item, timezone);
+            times.push(time);
+        });
+        return times;
+    }
+
+    convertToSearchedTime(unixTime, timezone) {
+        const localDate = new Date(unixTime.dt * 1000);
+        const utcUnixTime = localDate.getTime() + localDate.getTimezoneOffset() * 60000;
+        const unixTimeInSearchedCity = utcUnixTime + timezone * 1000;
+        const dateInsearchedCity = new Date(unixTimeInSearchedCity);
+        const hours = dateInsearchedCity.getHours();
+        const time = `${hours}:00`;
+        return time;
     }
 }

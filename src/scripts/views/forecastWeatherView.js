@@ -4,7 +4,17 @@ export default class ForecastWeatherView {
         this.model = forecastWeatherModel;
         this.temperatures = forecastWeatherModel.temperature;
         this.weatherConditions = forecastWeatherModel.weatherCondition;
+        this.times = forecastWeatherModel.time;
 
+    }
+    get times() {
+        return this.element.querySelectorAll('.forecast__item__time');
+    }
+
+    set times(value) {
+        for (let i = 0; i < this.times.length; i++) {
+            this.times[i].textContent = value[i];
+        }
     }
 
     get temperatures() {
@@ -12,7 +22,7 @@ export default class ForecastWeatherView {
     }
 
     set temperatures(value) {
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < this.times.length; i++) {
             this.temperatures[i].textContent = value[i];
 
         }

@@ -12,6 +12,9 @@ export default class CurrentWeatherView {
         this.weatherConditionDesc = currentWeatherModel.weatherConditionDesc;
         this.weatherConditionImg = currentWeatherModel.weatherConditionImg;
         this.backgroundVideo = currentWeatherModel.backgroundVideo;
+        this.nowWeatherCondition = currentWeatherModel.weatherConditionImg;
+        this.nowTemperature = currentWeatherModel.temperature;
+
 
     }
     weatherColor(value) {
@@ -98,7 +101,23 @@ export default class CurrentWeatherView {
     get backgroundVideo() {
         return document.getElementById('video');
     }
+
     set backgroundVideo(value) {
         this.backgroundVideo.src = value;
+    }
+
+    get nowWeatherCondition() {
+        return document.getElementById('forecast__item__current__condition');
+    }
+    set nowWeatherCondition(value) {
+        this.nowWeatherCondition.src = `./images/${value}.png`;
+    }
+
+    get nowTemperature() {
+        return document.getElementById('forecast__item__current__temp');
+    }
+
+    set nowTemperature(value) {
+        this.nowTemperature.textContent = value;
     }
 }

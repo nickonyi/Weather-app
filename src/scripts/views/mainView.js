@@ -18,4 +18,14 @@ export default class MainView {
         new ForecastWeatherView(element, forecastWeather);
     }
 
+    changeUnitTemp(unit) {
+        if (unit === "imperial") {
+            document.querySelector(".unitC").style.color = "white";
+            document.querySelector(".unitF").style.color = "black";
+        } else {
+            document.querySelector(".unitF").style.color = "white";
+            document.querySelector(".unitC").style.color = "black";
+        }
+    }
+
 }
