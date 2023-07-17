@@ -20,8 +20,8 @@ This is a weather app created using JS and APIs.It has the feature of enabling y
 
 ### Screenshot
 
-![](/dist/images/light_mode_thee.png)
-![](/dist/images/dark_mode_theme.png)
+![](/src/images/Weather-screenshot-1.png)
+![](/src/images/Weather-screenshot-2.png)
 
 ### Links
 
